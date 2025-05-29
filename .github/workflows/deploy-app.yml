@@ -20,7 +20,7 @@ jobs:
       - name: Setup
         run: npm run setup:ci
         env:
-          FIRE_PROJECT: ${{ secrets.API_URL }}
+          API_URL: ${{ secrets.API_URL }}
 
       - name: Deploy to Firebase
         uses: w9jds/firebase-action@v14.4.0
