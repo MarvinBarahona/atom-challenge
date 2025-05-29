@@ -22,7 +22,6 @@ jobs:
 
       - name: Deploy to Firebase
         uses: w9jds/firebase-action@v14.4.0
-        working-directory: .
         with:
           args: deploy --only functions
         env:
