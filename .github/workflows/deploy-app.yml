@@ -1,0 +1,31 @@
+name: Build and Deploy Hosting
+
+on:
+  push:
+    branches: [ 'main' ]
+    paths: [ 'app/**' ]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    defaults:
+      run:
+        working-directory: ./app
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup
+        run: npm run setup:ci
+        env:
+          FIRE_PROJECT: ${{ secrets.API_URL }}
+
+      - name: Deploy to Firebase
+        uses: w9jds/firebase-action@v14.4.0
+        with:
+          args: deploy --only hosting
+        env:
+          PROJECT_ID: ${{ secrets.FIREBASE_PROJECT_ID }}
+          FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}

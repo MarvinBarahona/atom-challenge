@@ -1,0 +1,7 @@
+
+/dist
+/node_modules
+/.angular/cache
+.vscode
+.env
+/src/environments/environment.ts
