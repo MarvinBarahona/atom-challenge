@@ -69,7 +69,7 @@ export const createUser = async (
   } else {
     const response: ErrorResponse = {
       success: false,
-      error: 'The email already exists',
+      error: "The email already exists",
     };
     res.status(400).send(response);
   }

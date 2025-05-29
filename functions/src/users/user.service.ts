@@ -12,7 +12,11 @@ class UserService {
   }
 
   async getUserByEmail(email: string): Promise<User | null> {
-    const userQuerySnapshot = await this.db.collection(userCollection).where('email', '==', email).limit(1).get();
+    const userQuerySnapshot = await this.db
+      .collection(userCollection)
+      .where("email", "==", email)
+      .limit(1)
+      .get();
 
     if (userQuerySnapshot.size === 0) {
       return Promise.resolve(null);
