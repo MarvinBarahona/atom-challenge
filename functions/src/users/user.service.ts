@@ -2,7 +2,7 @@ import {Firestore} from "firebase-admin/firestore";
 
 import {FirestoreFactory, userCollection} from "../config/firestore";
 
-import {User, UserData} from "./models/user.model";
+import {User, UserData} from "./models";
 
 class UserService {
   db: Firestore;
@@ -11,19 +11,18 @@ class UserService {
     this.db = FirestoreFactory.getInstance();
   }
 
-  async getAllUsers() {
-    const userQuerySnapshot = await this.db.collection(userCollection).get();
-    const users: User[] = [];
-    userQuerySnapshot.forEach(
-      (doc)=>{
-        users.push({
-          id: doc.id,
-          email: (doc.data() as UserData).email,
-        });
-      }
-    );
+  async getUserByEmail(email: string): Promise<User | null> {
+    const userQuerySnapshot = await this.db.collection(userCollection).where('email', '==', email).limit(1).get();
 
-    return users;
+    if (userQuerySnapshot.size === 0) {
+      return Promise.resolve(null);
+    }
+
+    const doc = userQuerySnapshot.docs[0];
+    return {
+      id: doc.id,
+      email: (doc.data() as UserData).email,
+    };
   }
 
   async createUser(user: UserData) {

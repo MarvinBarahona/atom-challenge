@@ -25,12 +25,13 @@ export const checkUserExist = async (
   logger.info(`Searching for user with email: ${userEmail}`);
 
   try {
-    const users = await userService.getAllUsers();
+    const user = await userService.getUserByEmail(userEmail);
 
     const response: SuccessResponse<CheckUserResponse> = {
       success: true,
       data: {
-        isUserRegistered: users.some((user) => user.email === userEmail),
+        isUserRegistered: !!user,
+        userId: user?.id,
       },
     };
 
@@ -49,16 +50,27 @@ export const createUser = async (
   req: TypedUpsertRequest<void, BaseResponse, CreateUserRequest>,
   res: TypedResponse
 ) => {
-  logger.info(`Creating user with email: ${req.body.email}`);
+  const userEmail = req.body.email;
+  logger.info(`Creating user with email: ${userEmail}`);
 
-  const newDocId = await userService.createUser(req.body);
+  const user = await userService.getUserByEmail(userEmail);
 
-  const response: SuccessResponse<CreateUserResponse> = {
-    success: true,
-    data: {
-      id: newDocId,
-    },
-  };
+  if (!user) {
+    const newDocId = await userService.createUser(req.body);
 
-  res.json(response);
+    const response: SuccessResponse<CreateUserResponse> = {
+      success: true,
+      data: {
+        id: newDocId,
+      },
+    };
+
+    res.json(response);
+  } else {
+    const response: ErrorResponse = {
+      success: false,
+      error: 'The email already exists',
+    };
+    res.status(400).send(response);
+  }
 };

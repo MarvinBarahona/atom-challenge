@@ -4,4 +4,5 @@ export interface CreateUserResponse {
 
 export interface CheckUserResponse {
     isUserRegistered: boolean;
+    userId?: string;
 }
