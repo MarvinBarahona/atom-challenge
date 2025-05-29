@@ -1,10 +1,7 @@
 import {onRequest} from "firebase-functions/v2/https";
-import * as logger from "firebase-functions/logger";
+import app from "./app";
+import userRoutes from "./users/user.routes";
 
-// Start writing functions
-// https://firebase.google.com/docs/functions/typescript
+app.use("/users", userRoutes);
 
-export const helloWorld = onRequest((request, response) => {
-  logger.info("Hello logs!", {structuredData: true});
-  response.send("Hello from Firebase! Edited to test Github Action. Test 5");
-});
+export const api = onRequest(app);
