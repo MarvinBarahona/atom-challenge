@@ -1,6 +1,6 @@
 import {Firestore} from "firebase-admin/firestore";
 
-import {FirestoreFactory, userCollection} from "@config/firestore";
+import {FirestoreFactory, userCollection} from "../config/firestore";
 
 import {User, UserData} from "./models/user.model";
 

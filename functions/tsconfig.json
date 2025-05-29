@@ -7,9 +7,6 @@
     "noImplicitReturns": true,
     "noUnusedLocals": true,
     "outDir": "lib",
-    "paths": {
-      "@config/*": ["src/config/*"],
-    },
     "sourceMap": true,
     "strict": true,
     "target": "es2017"
