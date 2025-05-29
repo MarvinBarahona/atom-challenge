@@ -1,20 +1,20 @@
 import {Request} from "express";
 
-import {TypedResponse} from "./response.type";
+import {BaseResponse} from "./response.type";
 
 export type TypedGetRequest<
     Params = void,
-    ResBody = TypedResponse,
+    ResBody = BaseResponse,
     ReqQuery = void,
 > = Request<Params, ResBody, void, ReqQuery>;
 
 export type TypedUpsertRequest<
     Params = void,
-    ResBody = TypedResponse,
+    ResBody = BaseResponse,
     ReqBody = void,
 > = Request<Params, ResBody, ReqBody, void>;
 
 export type TypedDeleteRequest<
     Params = void,
-    ResBody = TypedResponse,
+    ResBody = BaseResponse,
 > = Request<Params, ResBody, void, void>;
