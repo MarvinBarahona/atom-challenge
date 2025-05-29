@@ -2,7 +2,7 @@ import {Firestore} from "firebase-admin/firestore";
 
 import {FirestoreFactory, userCollection} from "../config/firestore";
 
-import {User, UserData} from "./models";
+import {CreateUserRequest, User, UserData} from "./models";
 
 class UserService {
   db: Firestore;
@@ -29,7 +29,23 @@ class UserService {
     };
   }
 
-  async createUser(user: UserData) {
+  async getUserById(id: string): Promise<User | null> {
+    const userDocSnapshot = await this.db
+      .collection(userCollection)
+      .doc(id)
+      .get();
+
+    if (!userDocSnapshot.exists) {
+      return Promise.resolve(null);
+    }
+
+    return {
+      id: userDocSnapshot.id,
+      email: (userDocSnapshot.data() as UserData).email,
+    };
+  }
+
+  async createUser(user: CreateUserRequest) {
     const newDoc = await this.db.collection(userCollection).add(user);
     return newDoc.id;
   }

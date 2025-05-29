@@ -1,20 +1,20 @@
 import {Request} from "express";
 
 import {BaseResponse} from "./response.type";
+import {User} from "../users/models";
 
-export type TypedGetRequest<
-    Params = void,
+export type TypedRequest<
+    Params = unknown,
     ResBody = BaseResponse,
-    ReqQuery = void,
-> = Request<Params, ResBody, void, ReqQuery>;
+    ReqBody = unknown,
+    ReqQuery = unknown,
+> = Request<Params, ResBody, ReqBody, ReqQuery>;
 
-export type TypedUpsertRequest<
-    Params = void,
+export interface AuthRequest<
+    Params = unknown,
     ResBody = BaseResponse,
-    ReqBody = void,
-> = Request<Params, ResBody, ReqBody, void>;
-
-export type TypedDeleteRequest<
-    Params = void,
-    ResBody = BaseResponse,
-> = Request<Params, ResBody, void, void>;
+    ReqBody = unknown,
+    ReqQuery = unknown,
+> extends Request<Params, ResBody, ReqBody, ReqQuery> {
+    user: User
+}

@@ -1,8 +1,8 @@
-export interface CreateUserResponse {
-    id: string;
+export type CreateUserResponse = {
+    userId: string;
 }
 
-export interface CheckUserResponse {
+export type CheckUserResponse = {
     isUserRegistered: boolean;
     userId?: string;
 }

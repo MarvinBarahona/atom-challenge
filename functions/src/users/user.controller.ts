@@ -6,9 +6,8 @@ import {
   BaseResponse,
   ErrorResponse,
   SuccessResponse,
-  TypedGetRequest,
+  TypedRequest,
   TypedResponse,
-  TypedUpsertRequest,
 } from "../types";
 import {
   CheckUserRequest,
@@ -18,7 +17,7 @@ import {
 } from "./models";
 
 export const checkUserExist = async (
-  req: TypedGetRequest<void, BaseResponse, CheckUserRequest>,
+  req: TypedRequest<void, BaseResponse, void, CheckUserRequest>,
   res: TypedResponse
 ) => {
   const userEmail = req.query.email;
@@ -47,7 +46,7 @@ export const checkUserExist = async (
 };
 
 export const createUser = async (
-  req: TypedUpsertRequest<void, BaseResponse, CreateUserRequest>,
+  req: TypedRequest<void, BaseResponse, CreateUserRequest, void>,
   res: TypedResponse
 ) => {
   const userEmail = req.body.email;
@@ -61,7 +60,7 @@ export const createUser = async (
     const response: SuccessResponse<CreateUserResponse> = {
       success: true,
       data: {
-        id: newDocId,
+        userId: newDocId,
       },
     };
 
