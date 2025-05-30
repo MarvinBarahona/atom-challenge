@@ -1,0 +1,230 @@
+{
+	"info": {
+		"_postman_id": "511e84ab-ed28-426d-aedb-10bae8072079",
+		"name": "Atom Challenge - To Do List",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "4999990"
+	},
+	"item": [
+		{
+			"name": "Check User",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/users/check?email=test@test.com",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"users",
+						"check"
+					],
+					"query": [
+						{
+							"key": "email",
+							"value": "test@test.com"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Test POST",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"test@test.com\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/users",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get To Do List",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{userId}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{baseUrl}}/to-do",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"to-do"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Item",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{userId}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"title\": \"Test\",\r\n    \"description\": \"Test description\",\r\n    \"isDone\": false\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/to-do",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"to-do"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Item",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{userId}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"title\": \"Test\",\r\n    \"description\": \"Test description edited\",\r\n    \"isDone\": true\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/to-do/:itemId",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"to-do",
+						":itemId"
+					],
+					"variable": [
+						{
+							"key": "itemId",
+							"value": "9BmXJzMzjF5u7Q5TcWLd"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Item",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{userId}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{baseUrl}}/to-do/:itemId",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"to-do",
+						":itemId"
+					],
+					"variable": [
+						{
+							"key": "itemId",
+							"value": "9BmXJzMzjF5u7Q5TcWLd"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "userId",
+			"value": "",
+			"type": "string"
+		}
+	]
+}
