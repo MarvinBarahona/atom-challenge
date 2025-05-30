@@ -43,7 +43,7 @@ Se utilizó Firestore como base de datos. La estructura cuenta con una colecció
 
 - API desarrollada con **Express + TypeScript**, desplegada en **Firebase Cloud Functions**.
 - Endpoints para gestión de usuarios y de tareas.
-- Documentación de pruebas disponible en Postman ([ver aquí](postman)).
+- Documentación de pruebas disponible en Postman ([ver aquí](postman)). La dirección base del servicio es: https://us-central1-mbarahona-atom-challenge.cloudfunctions.net/api
 - Uso de **Zod** para validación de datos entrantes mediante middleware.
 - Middleware para validar presencia de un "token" simulado (actualmente se utiliza `userId` en algunas peticiones).
 - Arquitectura basada en capas: `controller -> service`. El service utiliza un cliente de Firestore implementado como **Singleton**.
@@ -55,6 +55,7 @@ Se utilizó Firestore como base de datos. La estructura cuenta con una colecció
 - Funciones reutilizables para transformar datos (e.g., agregar `id`, convertir `Timestamp` a `Date`).
 - Mejorar sistema de logging.
 - Ejecutar el linter automáticamente con cada commit y bloquear commits con errores.
+- Configurar CORS apropiadamente. 
 
 ---
 
@@ -63,6 +64,7 @@ Se utilizó Firestore como base de datos. La estructura cuenta con una colecció
 - Aplicación creada con **Angular** usando *standalone components* y **signals**.
 - Se implementó registro y autenticación de usuarios.
 - Se configuraron *guards* para proteger rutas privadas.
+- Se puede consultar el sitio en: https://mbarahona-atom-challenge.web.app/
 
 **Mejoras y tareas pendientes:**
 
