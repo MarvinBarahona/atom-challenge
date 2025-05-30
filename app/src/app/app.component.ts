@@ -5,9 +5,6 @@ import {environment} from "../environments/environment";
 @Component({
   selector: 'app-root',
   imports: [RouterOutlet],
-  templateUrl: './app.component.html',
-  styleUrl: './app.component.sass'
+  template: `<router-outlet />`,
 })
-export class AppComponent {
-  title = environment.apiUrl;
-}
+export class AppComponent { }
