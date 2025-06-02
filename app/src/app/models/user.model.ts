@@ -7,11 +7,11 @@ export interface CreateUserRequest {
     email: string;
 }
 
-export type CreateUserResponse = {
+export interface CreateUserResponse {
     userId: string;
 }
 
-export type CheckUserResponse = {
+export interface CheckUserResponse {
     isUserRegistered: boolean;
     userId: string;
 }

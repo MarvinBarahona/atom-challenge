@@ -9,6 +9,7 @@
 - ✅ **Uso de [NG-ZORRO](https://ng.ant.design/docs/introduce/en)** como librería de componentes UI – Estética limpia y profesional basada en Ant Design.
 
 ## ⚙️ Instalación y ejecución local
+
 - Clona el repositorio
 - Instala las dependencias en la carpeta correspondiente.
 - Crea el archivo `.env`, hay un ejemplo disponible en `.env.example`

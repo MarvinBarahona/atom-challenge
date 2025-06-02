@@ -1,4 +1,4 @@
-import {User} from "./user.model";
+import { User } from './user.model';
 
 export interface ToDoItem {
     id: string;
@@ -8,9 +8,9 @@ export interface ToDoItem {
     createdAt: Date;
 }
 
-export type ToDoUpsertRequest = Omit<ToDoItem, "id" | "createdAt">;
+export type ToDoUpsertRequest = Omit<ToDoItem, 'id' | 'createdAt'>;
 
-export type ToDoListResponse = {
+export interface ToDoListResponse {
     user: User;
     items: ToDoItem[];
 }

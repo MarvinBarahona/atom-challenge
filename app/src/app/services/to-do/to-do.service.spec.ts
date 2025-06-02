@@ -3,14 +3,14 @@ import { TestBed } from '@angular/core/testing';
 import { ToDoService } from './to-do.service';
 
 describe('ToDoServiceTsService', () => {
-  let service: ToDoService;
+    let service: ToDoService;
 
-  beforeEach(() => {
-    TestBed.configureTestingModule({});
-    service = TestBed.inject(ToDoService);
-  });
+    beforeEach(() => {
+        TestBed.configureTestingModule({});
+        service = TestBed.inject(ToDoService);
+    });
 
-  it('should be created', () => {
-    expect(service).toBeTruthy();
-  });
+    it('should be created', () => {
+        expect(service).toBeTruthy();
+    });
 });
