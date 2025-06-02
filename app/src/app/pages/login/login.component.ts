@@ -10,7 +10,7 @@ import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 
 import { NzContentComponent, NzLayoutComponent } from 'ng-zorro-antd/layout';
 import { NzColDirective, NzRowDirective } from 'ng-zorro-antd/grid';
-import { NzFormControlComponent, NzFormDirective } from 'ng-zorro-antd/form';
+import { NzFormDirective } from 'ng-zorro-antd/form';
 import { NzInputDirective, NzInputGroupComponent } from 'ng-zorro-antd/input';
 import { NzButtonComponent } from 'ng-zorro-antd/button';
 import { NzDividerComponent } from 'ng-zorro-antd/divider';
@@ -27,7 +27,6 @@ import { AuthService } from '../../shared/auth.service';
         NzColDirective,
         NzFormDirective,
         ReactiveFormsModule,
-        NzFormControlComponent,
         NzInputGroupComponent,
         NzInputDirective,
         NzButtonComponent,

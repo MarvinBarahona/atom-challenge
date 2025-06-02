@@ -8,28 +8,24 @@
                     [formGroup]="userForm"
                     (ngSubmit)="checkUser()"
                 >
-                    <nz-form-item>
-                        <nz-form-control nzErrorTip="Please input your email!">
-                            <nz-input-group>
-                                <input
-                                    formControlName="email"
-                                    nz-input
-                                    placeholder="test@test.com"
-                                />
-                            </nz-input-group>
-                        </nz-form-control>
-                    </nz-form-item>
-                    <nz-form-item>
-                        <nz-form-control>
-                            <button
-                                nz-button
-                                nzType="primary"
-                                [disabled]="!userForm.valid || disabledLogin()"
-                            >
-                                Log in
-                            </button>
-                        </nz-form-control>
-                    </nz-form-item>
+                    <nz-input-group nzSearch nzSize="large" [nzAddOnAfter]="suffixButton">
+                        <input
+                            formControlName="email"
+                            nz-input
+                            nzSize="large"
+                            placeholder="test@test.com"
+                        />
+                    </nz-input-group>
+                    <ng-template #suffixButton>
+                        <button
+                            nz-button
+                            nzType="primary"
+                            nzSize="large"
+                            [disabled]="!userForm.valid || disabledLogin()"
+                        >
+                            Log in
+                        </button>
+                    </ng-template>
                 </form>
 
                 @if (showRegisterUser()) {
