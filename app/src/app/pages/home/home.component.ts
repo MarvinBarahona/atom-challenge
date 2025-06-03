@@ -117,11 +117,7 @@ export class HomeComponent implements OnInit {
                 .pipe(
                     tap({
                         error: () => {
-                            this.items.set([
-                                ...items.slice(0, index),
-                                itemToDelete,
-                                ...items.slice(index),
-                            ]);
+                            this.items.set(items);
                         },
                     })
                 )
