@@ -5,6 +5,7 @@ import {
     output,
 } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { DatePipe } from '@angular/common';
 
 import { NzCardComponent } from 'ng-zorro-antd/card';
 import { NzSwitchComponent } from 'ng-zorro-antd/switch';
@@ -17,6 +18,7 @@ import { ToDoItem } from '../../models/to-do.model';
     selector: 'app-item-card',
     imports: [
         FormsModule,
+        DatePipe,
         NzCardComponent,
         NzSwitchComponent,
         NzButtonComponent,

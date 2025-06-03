@@ -7,6 +7,10 @@
     [nzActions]="[actionDelete, actionEdit]"
 >
     <p [class.done-text]="_item.isDone">{{ _item.description }}</p>
+
+    <p class="item-created-date" [class.done-text]="_item.isDone">
+        Created at: {{ _item.createdAt | date: 'dd MMM yyyy, HH:mm' }}
+    </p>
 </nz-card>
 
 <ng-template #extraTemplate>
