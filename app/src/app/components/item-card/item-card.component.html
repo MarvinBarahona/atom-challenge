@@ -1,0 +1,31 @@
+@let _item = item();
+
+<nz-card
+    style="width: 300px"
+    [nzTitle]="_item.title"
+    [nzExtra]="extraTemplate"
+    [nzActions]="[actionDelete, actionEdit]"
+>
+    <p [class.done-text]="_item.isDone">{{ _item.description }}</p>
+</nz-card>
+
+<ng-template #extraTemplate>
+    <nz-switch
+        [ngModel]="_item.isDone"
+        (ngModelChange)="onToggleDone($event)"
+    ></nz-switch>
+</ng-template>
+
+<ng-template #actionDelete>
+    <a
+        nz-popconfirm
+        nzPopconfirmTitle="Are you sure delete this item?"
+        (nzOnConfirm)="onDelete()"
+    >
+        Delete
+    </a>
+</ng-template>
+
+<ng-template #actionEdit>
+    <a nz-button nzType="link" (click)="onEdit()">Edit</a>
+</ng-template>

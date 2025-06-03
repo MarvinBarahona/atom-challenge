@@ -1,0 +1,45 @@
+<nz-card
+    style="width: 300px"
+    [nzTitle]="title()"
+    [nzActions]="[actionCancel, actionSave]"
+>
+    <form nz-form [formGroup]="itemForm">
+        <nz-form-item>
+            <nz-form-label nzRequired nzFor="title">Title</nz-form-label>
+            <nz-form-control nzErrorTip="Please enter the title">
+                <input id="title" nz-input formControlName="title" />
+            </nz-form-control>
+        </nz-form-item>
+        <nz-form-item>
+            <nz-form-label nzRequired nzFor="description"
+                >Description</nz-form-label
+            >
+            <nz-form-control nzErrorTip="Please enter the description">
+                <input
+                    id="description"
+                    nz-input
+                    formControlName="description"
+                />
+            </nz-form-control>
+        </nz-form-item>
+        <nz-form-item>
+            <nz-form-control>
+                <label nz-checkbox formControlName="isDone"> Is done? </label>
+            </nz-form-control>
+        </nz-form-item>
+    </form>
+</nz-card>
+
+<ng-template #actionCancel>
+    <a nz-button nzType="link" (click)="onCancel()">Cancel</a>
+</ng-template>
+
+<ng-template #actionSave>
+    <a
+        nz-button
+        nzType="link"
+        (click)="onSave()"
+        [disabled]="itemForm.invalid"
+        >{{ saveLabel() }}</a
+    >
+</ng-template>

@@ -1,1 +1,22 @@
-<p>home works!</p>
+@if (loadingItems()) {
+    <app-loader />
+} @else {
+    @let _items = items();
+
+    @if (!_items) {
+        <nz-alert nzType="error" nzMessage="Error loading items!"></nz-alert>
+    } @else {
+        <div class="items-container">
+            @for (item of _items; track item.id) {
+                <app-item-card [item]="item" />
+            }
+
+            <app-item-form-card title="Create item" saveLabel="Create" />
+            <app-item-form-card
+                title="Update item"
+                saveLabel="Update"
+                [item]="_items[0]"
+            />
+        </div>
+    }
+}
