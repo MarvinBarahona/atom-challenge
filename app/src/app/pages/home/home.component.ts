@@ -103,10 +103,6 @@ export class HomeComponent implements OnInit {
     onDeleteItem(itemToDelete: ToDoItem): void {
         const items = this.items();
         if (items && items.length > 0) {
-            const index = items.findIndex(
-                (item) => item.id === itemToDelete.id
-            );
-
             this.items.update(
                 (items) =>
                     items && items.filter((item) => item.id !== itemToDelete.id)
