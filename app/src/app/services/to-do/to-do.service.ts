@@ -5,7 +5,11 @@ import { map, Observable } from 'rxjs';
 
 import { environment } from '../../../environments/environment';
 import { BaseResponse } from '../../models/base.model';
-import { ToDoUpsertRequest, ToDoListResponse } from '../../models/to-do.model';
+import {
+    ToDoUpsertRequest,
+    ToDoListResponse,
+    ToDoItem,
+} from '../../models/to-do.model';
 
 @Injectable()
 export class ToDoService {
@@ -22,8 +26,10 @@ export class ToDoService {
             );
     }
 
-    createToDoItem(request: ToDoUpsertRequest): Observable<void> {
-        return this.http.post<void>(`${this.apiUrl}/to-do`, request);
+    createToDoItem(request: ToDoUpsertRequest): Observable<string> {
+        return this.http
+            .post<BaseResponse<ToDoItem>>(`${this.apiUrl}/to-do`, request)
+            .pipe(map((res) => res.data.id));
     }
 
     updateToDoItem(

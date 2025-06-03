@@ -8,15 +8,14 @@
     } @else {
         <div class="items-container">
             @for (item of _items; track item.id) {
-                <app-item-card [item]="item" />
+                <app-item
+                    [item]="item"
+                    (update)="onUpdateItem(item, $event)"
+                    (delete)="onDeleteItem(item)"
+                />
             }
 
-            <app-item-form-card title="Create item" saveLabel="Create" />
-            <app-item-form-card
-                title="Update item"
-                saveLabel="Update"
-                [item]="_items[0]"
-            />
+            <app-item (create)="onCreateItem($event)" />
         </div>
     }
 }

@@ -1,0 +1,24 @@
+@let _item = item();
+
+@if (!_item) {
+    <app-item-form-card
+        title="Create item"
+        saveLabel="Create"
+        (save)="onCreate($event)"
+    />
+} @else if (isShowingForm()) {
+    <app-item-form-card
+        title="Update item"
+        saveLabel="Update"
+        [item]="_item"
+        (save)="onUpdate($event)"
+        (cancel)="toggleForm()"
+    />
+} @else {
+    <app-item-card
+        [item]="_item"
+        (edit)="toggleForm()"
+        (toggleDone)="onToggleDone(_item, $event)"
+        (delete)="onDelete()"
+    />
+}
