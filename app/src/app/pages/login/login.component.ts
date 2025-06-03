@@ -21,12 +21,12 @@ import { AuthService } from '../../shared/auth.service';
 @Component({
     selector: 'app-login',
     imports: [
-        NzContentComponent,
+        ReactiveFormsModule,
         NzLayoutComponent,
+        NzContentComponent,
         NzRowDirective,
         NzColDirective,
         NzFormDirective,
-        ReactiveFormsModule,
         NzInputGroupComponent,
         NzInputDirective,
         NzButtonComponent,
@@ -37,10 +37,10 @@ import { AuthService } from '../../shared/auth.service';
     changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class LoginComponent {
-    loginService = inject(UserService);
-    authService = inject(AuthService);
-    router = inject(Router);
-    fb = inject(FormBuilder);
+    private loginService = inject(UserService);
+    private authService = inject(AuthService);
+    private router = inject(Router);
+    private fb = inject(FormBuilder);
 
     userForm = this.fb.group({
         email: ['', [Validators.required, Validators.email]],

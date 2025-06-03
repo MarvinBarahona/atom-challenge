@@ -8,7 +8,11 @@
                     [formGroup]="userForm"
                     (ngSubmit)="checkUser()"
                 >
-                    <nz-input-group nzSearch nzSize="large" [nzAddOnAfter]="suffixButton">
+                    <nz-input-group
+                        nzSearch
+                        nzSize="large"
+                        [nzAddOnAfter]="suffixButton"
+                    >
                         <input
                             formControlName="email"
                             nz-input

@@ -1,12 +1,14 @@
-import {Component, inject} from '@angular/core';
-import {Router, RouterOutlet} from '@angular/router';
+import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
+import { Router, RouterOutlet } from '@angular/router';
+
 import {
     NzContentComponent,
     NzHeaderComponent,
     NzLayoutComponent,
 } from 'ng-zorro-antd/layout';
-import {NzButtonComponent} from "ng-zorro-antd/button";
-import {AuthService} from "../../shared/auth.service";
+import { NzButtonComponent } from 'ng-zorro-antd/button';
+
+import { AuthService } from '../../shared/auth.service';
 
 @Component({
     selector: 'app-main-layout',
@@ -19,6 +21,7 @@ import {AuthService} from "../../shared/auth.service";
     ],
     templateUrl: './main-layout.component.html',
     styleUrl: './main-layout.component.sass',
+    changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class MainLayoutComponent {
     private authService = inject(AuthService);
