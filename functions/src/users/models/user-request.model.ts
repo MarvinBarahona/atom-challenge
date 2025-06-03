@@ -1,4 +1,4 @@
-import {UserData} from "./user.model";
+import { UserData } from './user.model';
 
 export type CreateUserRequest = UserData;
-export type CheckUserRequest = {email: string};
+export type CheckUserRequest = { email: string };

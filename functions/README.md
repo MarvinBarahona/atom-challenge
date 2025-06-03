@@ -8,6 +8,7 @@
 - ✅ Preparado para desarrollo y pruebas locales con emuladores de Firebase.
 
 ## ⚙️ Instalación y ejecución local
+
 - Clona el repositorio
 - Instala las dependencias en la carpeta correspondiente.
 - Utiliza Firebase CLI Tools para seleccionar el proyecto de Firebase que se utilizará (se debe generar el archivo `.firebaserc`)

@@ -1,8 +1,8 @@
-import {Response} from "express";
+import { Response } from 'express';
 
 export type BaseResponse = {
     success: boolean;
-}
+};
 
 export type SuccessResponse<T> = BaseResponse & {
     success: true;

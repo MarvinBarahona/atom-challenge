@@ -1,7 +1,7 @@
-import {Request} from "express";
+import { Request } from 'express';
 
-import {BaseResponse} from "./response.type";
-import {User} from "../users/models";
+import { BaseResponse } from './response.type';
+import { User } from '../users/models';
 
 export type TypedRequest<
     Params = unknown,
@@ -16,5 +16,5 @@ export interface AuthRequest<
     ReqBody = unknown,
     ReqQuery = unknown,
 > extends Request<Params, ResBody, ReqBody, ReqQuery> {
-    user: User
+    user: User;
 }
