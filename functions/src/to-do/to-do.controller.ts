@@ -27,7 +27,7 @@ export const getToDoList = async (
     success: true,
     data: {
       user,
-      items: items ?? [],
+      items: items?.sort((a,b) => a.createdAt.getTime() - b.createdAt.getTime()) ?? [],
     },
   };
 
